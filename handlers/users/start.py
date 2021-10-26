@@ -50,7 +50,7 @@ async def start(message: types.Message, state=FSMContext):
 
     elif message.text.strip().lower() == '+998901757121':
         await state.update_data(public_login=os.getenv("OLX_LOGIN_+998901757121"))
-        await state.update_data(public_password=os.getenv("OLX_PASSWORD_+998901757121"))
+        await state.update_data(public_password=os.getenv("OLX_LOGIN_998901757121"))
 
     await message.answer('Введите интервал в секундах (не менее 20)')
     await PublicStates.Public_Q2.set()
@@ -63,7 +63,7 @@ async def start(message: types.Message, state=FSMContext):
     await state.update_data(interval_time=message.text)
 
     # Функция активации
-    with webdriver.Chrome(executable_path="chromedriver.exe",
+    with webdriver.Chrome(executable_path=os.getenv("PATH_CHROMIUM"),
                           options=Options().add_argument("--headless")) as driver:
         wait = WebDriverWait(driver, 10)
         driver.get("https://www.olx.uz/account/")
