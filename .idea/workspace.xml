@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af7cf24c-10f4-49a8-addf-309f3a3ac326" name="Default Changelist" comment="" />
+    <list default="true" id="af7cf24c-10f4-49a8-addf-309f3a3ac326" name="Default Changelist" comment="start activate_olx">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,6 +149,18 @@
       <option name="presentableId" value="Default" />
       <updated>1634682364023</updated>
     </task>
+    <task id="LOCAL-00001" summary="start activate_olx">
+      <created>1635215375141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635215375141</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="start activate_olx" />
+    <option name="LAST_COMMIT_MESSAGE" value="start activate_olx" />
   </component>
 </project>
