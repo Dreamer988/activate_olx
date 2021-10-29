@@ -62,9 +62,13 @@ async def start(message: types.Message, state=FSMContext):
     await state.update_data(public=True)
     await state.update_data(interval_time=message.text)
 
+    options = Options()
+    options.add_argument("--headless")
+    # options.binary_location(os.getenv("PATH_CHROME"))
+
     # Функция активации
-    with webdriver.Chrome(executable_path=os.getenv("PATH_CHROMIUM"),
-                          options=Options().add_argument("--headless")) as driver:
+    with webdriver.Chrome(executable_path=os.getenv("PATH_CHROMEDRIVER"),
+                          options=options) as driver:
         wait = WebDriverWait(driver, 10)
         driver.get("https://www.olx.uz/account/")
 

@@ -1,5 +1,6 @@
-from dotenv import load_dotenv
 import os
+
+from dotenv import load_dotenv
 
 # Подгружаем переменные окружения
 load_dotenv()
@@ -11,4 +12,4 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 ACTIVATION_GROUP_ID = '-668180865'
 
 # Пользователи с доступом
-USER_ACCESS = ['535176521']
+USER_ACCESS = ['535176521', '389654095']
