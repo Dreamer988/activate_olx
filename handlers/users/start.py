@@ -1,21 +1,22 @@
 import os
 import re
 import time
-import os
+
 from aiogram import types
 from aiogram.dispatcher import FSMContext
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-from dotenv import load_dotenv
+
+from data import config
 from filters.is_digit import IsDigit
 from filters.user_access import UserAccess
 from keyboards.default.public_olx import kb_public
-from states import PublicStates
-from data import config
 from loader import dp
-from selenium.webdriver.chrome.options import Options
+from states import PublicStates
+
 load_dotenv()
 
 
@@ -62,12 +63,12 @@ async def start(message: types.Message, state=FSMContext):
     await state.update_data(public=True)
     await state.update_data(interval_time=message.text)
 
-    options = Options()
-    options.add_argument("--headless")
-    # options.binary_location(os.getenv("PATH_CHROME"))
+    driver_location = "chromedriver.exe"
+    options = webdriver.ChromeOptions()
+    options.headless = True
 
     # Функция активации
-    with webdriver.Chrome(executable_path=os.getenv("PATH_CHROMEDRIVER"),
+    with webdriver.Chrome(executable_path=driver_location,
                           options=options) as driver:
         wait = WebDriverWait(driver, 10)
         driver.get("https://www.olx.uz/account/")
@@ -79,7 +80,7 @@ async def start(message: types.Message, state=FSMContext):
         try:
             driver.find_element(By.ID, "userEmail").send_keys(login)
             driver.find_element(By.ID, "userPass").send_keys(password + Keys.ENTER)
-            time.sleep(10)
+            time.sleep(44)
         except:
             print("Не удалось войти в аккаунт")
 
@@ -91,7 +92,7 @@ async def start(message: types.Message, state=FSMContext):
             if activate:
                 try:
                     driver.get("https://www.olx.uz/myaccount/archive/")
-                    time.sleep(5)
+                    time.sleep(25)
                     try:
                         title = driver.find_element(By.CSS_SELECTOR, '[class="myoffersnew__item"]'). \
                             find_element(By.TAG_NAME, "h3"). \
